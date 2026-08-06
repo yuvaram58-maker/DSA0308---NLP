@@ -1,0 +1,29 @@
+# Simple Stochastic POS Tagger
+
+# Dictionary containing words and their probable POS tags
+pos_prob = {
+    "I": "PRP",
+    "eat": "VB",
+    "an": "DT",
+    "apple": "NN",
+    "she": "PRP",
+    "reads": "VBZ",
+    "a": "DT",
+    "book": "NN",
+    "beautiful": "JJ",
+    "quickly": "RB"
+}
+
+# Input sentence
+sentence = input("Enter a sentence: ")
+
+# Tokenize the sentence
+words = sentence.split()
+
+print("\nWord\t\tPOS Tag")
+print("-" * 25)
+
+# Assign the most probable POS tag
+for word in words:
+    tag = pos_prob.get(word, "NN")   # Default tag is Noun
+    print(f"{word}\t\t{tag}")
