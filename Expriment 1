@@ -1,0 +1,21 @@
+import re
+
+text = "My name is Yuvaraj. My email is yuvaraj123@gmail.com and my phone number is 9876543210."
+
+email = re.search(r'[\w.-]+@[\w.-]+\.\w+', text)
+
+if email:
+    print("Email found:", email.group())
+
+phone = re.search(r'\b\d{10}\b', text)
+
+if phone:
+    print("Phone number found:", phone.group())
+
+numbers = re.findall(r'\d+', text)
+print("Numbers found:", numbers)
+
+match = re.match(r'My', text)
+
+if match:
+    print("Pattern matched:", match.group())
