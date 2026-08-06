@@ -1,0 +1,21 @@
+# Import NLTK
+import nltk
+from nltk.tokenize import word_tokenize
+
+# Download required NLTK resources (run only once)
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+# Input text
+text = "The quick brown fox jumps over the lazy dog."
+
+# Tokenize the text into words
+words = word_tokenize(text)
+
+# Perform POS tagging
+pos_tags = nltk.pos_tag(words)
+
+# Display the results
+print("Words with their POS Tags:")
+for word, tag in pos_tags:
+    print(word, ":", tag)
