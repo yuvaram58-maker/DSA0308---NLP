@@ -1,0 +1,35 @@
+import re
+
+# Function to assign POS tags based on rules
+def pos_tag(word):
+    if re.fullmatch(r".*ing", word):
+        return "VBG"      # Verb (Present Participle)
+    elif re.fullmatch(r".*ed", word):
+        return "VBD"      # Verb (Past Tense)
+    elif re.fullmatch(r".*ly", word):
+        return "RB"       # Adverb
+    elif re.fullmatch(r".*ous|.*ful|.*able|.*ive", word):
+        return "JJ"       # Adjective
+    elif re.fullmatch(r".*s", word):
+        return "NNS"      # Plural Noun
+    elif word.lower() in ["the", "a", "an"]:
+        return "DT"       # Determiner
+    elif word.lower() in ["he", "she", "it", "they", "we", "i", "you"]:
+        return "PRP"      # Pronoun
+    elif word.lower() in ["is", "am", "are", "was", "were"]:
+        return "VB"       # Verb
+    else:
+        return "NN"       # Default: Noun
+
+# Input sentence
+sentence = input("Enter a sentence: ")
+
+# Tokenize sentence
+words = sentence.split()
+
+print("\nWord\t\tPOS Tag")
+print("-" * 25)
+
+# Tag each word
+for word in words:
+    print(f"{word}\t\t{pos_tag(word)}")

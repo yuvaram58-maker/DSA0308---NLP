@@ -1,0 +1,20 @@
+# Import NLTK
+import nltk
+
+# Download required resources (run only once)
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+# Input text
+text = "Natural Language Processing is an interesting field of Artificial Intelligence."
+
+# Tokenize the text into words
+words = nltk.word_tokenize(text)
+
+# Perform POS tagging
+pos_tags = nltk.pos_tag(words)
+
+# Display the tagged words
+print("Part-of-Speech Tags:\n")
+for word, tag in pos_tags:
+    print(f"{word:15} {tag}")

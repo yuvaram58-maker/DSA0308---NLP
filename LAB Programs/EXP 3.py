@@ -1,0 +1,23 @@
+# Import required libraries
+import nltk
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+
+# Download WordNet data (run only once)
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+# Create stemmer and lemmatizer objects
+stemmer = PorterStemmer()
+lemmatizer = WordNetLemmatizer()
+
+# List of words
+words = ["running", "played", "studies", "better", "cars"]
+
+print("Word\t\tStem\t\tLemma")
+print("-" * 35)
+
+# Perform stemming and lemmatization
+for word in words:
+    stem = stemmer.stem(word)
+    lemma = lemmatizer.lemmatize(word)
+    print(f"{word}\t\t{stem}\t\t{lemma}")

@@ -1,0 +1,34 @@
+# Simple Transformation-Based POS Tagging
+
+# Sample sentence
+sentence = "I am playing cricket and reading books"
+
+# Tokenize sentence
+words = sentence.split()
+
+# Step 1: Initial tagging (default rule)
+tagged = []
+
+for word in words:
+    if word.lower() in ["i", "he", "she", "they", "we", "you"]:
+        tag = "PRP"      # Pronoun
+    elif word.lower() in ["am", "is", "are", "was", "were"]:
+        tag = "VB"       # Verb
+    else:
+        tag = "NN"       # Default Noun
+    tagged.append([word, tag])
+
+print("Initial Tags:")
+for word, tag in tagged:
+    print(word, "->", tag)
+
+# Step 2: Apply transformation rule
+# Rule: If a word ends with "ing", change its tag to VBG
+
+for item in tagged:
+    if item[0].lower().endswith("ing"):
+        item[1] = "VBG"
+
+print("\nAfter Applying Transformation Rule:")
+for word, tag in tagged:
+    print(word, "->", tag)

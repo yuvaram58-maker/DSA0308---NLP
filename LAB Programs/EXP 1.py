@@ -1,0 +1,29 @@
+import re
+
+# Sample text
+text = "My email is student123@gmail.com and my phone number is 9876543210."
+
+# 1. Match pattern at the beginning of the string
+result = re.match(r"My", text)
+if result:
+    print("Match found:", result.group())
+else:
+    print("No match found")
+
+# 2. Search for a pattern anywhere in the string
+result = re.search(r"email", text)
+if result:
+    print("Search found:", result.group())
+
+# 3. Find all digits in the text
+digits = re.findall(r"\d+", text)
+print("Numbers found:", digits)
+
+# 4. Extract email address
+email = re.search(r"\S+@\S+\.\S+", text)
+if email:
+    print("Email found:", email.group())
+
+# 5. Replace a pattern
+new_text = re.sub(r"student123@gmail.com", "user@example.com", text)
+print("Updated text:", new_text)
